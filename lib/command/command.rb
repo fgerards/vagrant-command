@@ -8,7 +8,7 @@ module VagrantPlugins
       def execute
         with_target_vms("current", :reverse => true) do |machine|
           machine.communicate.sudo("rm -rf /tmp/database_imported")
-          system("git pull /database")
+          `git pull /database`
           machine.action(:provision)
         end
       end
