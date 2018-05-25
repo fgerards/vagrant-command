@@ -6,8 +6,8 @@ module VagrantPlugins
       end
 
       def execute
-        system("sudo rm -rf /tmp/database_imported")
-        with_target_vms(current, reverse: true) do |machine|
+        with_target_vms("current", reverse: true) do |machine|
+          machine.communicate.sudo("rm -rf /tmp/database_imported")
           machine.action(:provision)
         end
         if result.nil?
