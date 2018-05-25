@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["frank.gerards@m-net.de"]
   spec.description = %q{defines multiple custom commands to use for simple interaction with m-net TYPO3 vagrant VM.}
   spec.summary = spec.description
-  spec.homepage = "<repo url>"
+  spec.homepage = "https://github.com/fgerards/vagrant-command.git"
 
   spec.files = `git ls-files`.split($/)
   spec.executables = spec.files.grep(%r{^bin/}) {|f| File.basename(f)}
