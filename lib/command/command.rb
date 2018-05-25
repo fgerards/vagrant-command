@@ -6,16 +6,11 @@ module VagrantPlugins
       end
 
       def execute
-        with_target_vms("current", reverse: true) do |machine|
+        with_target_vms("current", :reverse => true) do |machine|
           machine.communicate.sudo("rm -rf /tmp/database_imported")
+          system("git pull /database")
           machine.action(:provision)
         end
-        if result.nil?
-          puts "Error was #{$?}"
-          return 1
-        end
-        puts "Success!!"
-        return 0
       end
     end
   end
