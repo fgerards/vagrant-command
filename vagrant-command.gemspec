@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name = "vagrant-command"
-  spec.version = 1
+  spec.version = "1.0.0"
   spec.authors = ["Frank Gerards@M-net"]
   spec.email = ["frank.gerards@m-net.de"]
   spec.description = %q{defines multiple custom commands to use for simple interaction with m-net TYPO3 vagrant VM.}
