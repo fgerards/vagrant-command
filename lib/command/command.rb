@@ -8,8 +8,9 @@ module VagrantPlugins
       def execute
         with_target_vms("current", :reverse => true) do |machine|
           machine.communicate.sudo("rm -rf /tmp/database_imported")
-          currentDir = Dir.pwd
-          `git pull #{currentDir}/website-typo3-portal/database`
+          repoDir = File.join(Dir.pwd, 'website-typo3-portal/database/')
+          `git -C #{repoDir} checkout develop`
+          `git -C #{repoDir} pull`
           machine.action(:provision)
         end
       end
